@@ -1,0 +1,23 @@
+relatorio:
+
+por que a janela aberta não mostra a imagem colorida?
+R: Pois no programa, a linha "img = cv.imread('messi5.jpg',0)", na chamada do imread, foi passado o segundo argumento como 0. pesquisando na documentação oficial do projeto descobri que esta flag é relacionada a como a imagem deve ser lida.
+o número 0 passado é equivalente à constante "IMREAD_GRAYSCALE" do open CV, portanto a imagem é carregada em escala de cinza.
+
+modifique o programa para que as imagens sejam exibidas mais
+rápidamente e depois para que sejam exibidas mais lentamente. Responda
+qual a explicação de alteração de velocidade de exibição, e apresente suas
+soluções detalhadamente
+R: 
+primeiro foi coletado o valor da velocidade pela digitação do usuário, com o método input.
+após isto, o valor de 0 a 10 foi dividido por 5.
+
+print("a velocidade é dada de 0 a 10, sendo 5 a velocidade normal.")
+velocidade = int(input("digite a velocidade de 1 a 10: "))/5
+
+esse valor então, foi inversamente multiplicado ao valor de 40ms do time.sleep
+  time.sleep((1/25.0)*(1/velocidade)) 
+
+desse modo, foi possivel aumentar o valor do delay de espera para o próximo quadro com o fator multiplicativo.
+
+
